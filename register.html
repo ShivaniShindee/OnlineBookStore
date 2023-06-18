@@ -1,0 +1,95 @@
+<html>
+
+<head>
+	<title>Register Page</title>
+
+	<style>
+		#container2 {
+			margin-top: 8%;
+			margin-left: 350px;
+			text-align: center;
+			width: 250px;
+		}
+
+		#container2 input {
+			margin: 5px;
+			padding: 5px;
+			border-radius: 2px;
+			border: 1px solid rgb(119, 115, 115);
+
+		}
+
+		#box2 {
+			background-color: white;
+		}
+
+		body {
+			background-color: #726E6D;
+		}
+	</style>
+
+	<script>
+		function validateform() 
+		{
+			var name = document.myform.name.value;
+
+			var lname = document.myform.lname.value;
+
+			var x = document.myform.email.value;
+			var atposition = x.indexOf("@");
+			var dotposition = x.lastIndexOf(".");
+
+			var num = document.myform.num.value;
+
+			var password = document.myform.password.value;
+
+			if (name == null || name == "") {
+				alert("Name cant be blank");
+				return false;
+			}
+
+			else if (lname == null || lname == "") {
+				alert("Last Name cant be blank");
+				return false;
+			}
+
+			else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+				alert("Please enter a valid e-mail address\n atposition: " + atposition + "\n dotposition:" + dotposition);
+				return false;
+			}
+
+			else if (num == null || num == "") {
+				alert("Number cant be blank");
+				return false;
+			}
+
+			else if (password.length < 6) {
+				alert("Password must be at least 6 characters long");
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="container2">
+		<form action="successful.html" name="myform" method="post" onsubmit="return validateform()">
+			<div id="box2">
+				<br>
+				<h4>Registration Form</h4>
+				<input type="text" name="name" placeholder="Firstname" size="20"><br>
+				<input type="text" name="lname" placeholder="Lastname" size="20"><br>
+				<input type="text" name="email" placeholder="Email Id" size="20"><br>
+				<input type="text" name="num" placeholder="Phoone number" size="20"><br>
+				<input type="Password" name="password" placeholder="Password"><br>
+				<input type="submit" value="Register"><br>
+				<br>
+				<br>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>
